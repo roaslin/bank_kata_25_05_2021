@@ -16,16 +16,16 @@ describe('Print statements feature', () => {
 
   beforeEach(() => {
     jest.resetAllMocks();
-    const myConsole = new CustomConsole();
-    const clock = new Clock();
-    const transactionRepository = new TransactionRepository(clock);
-    const statementPrinter = new StatementPrinter(myConsole);
-    const accountService = new AccountService(
+    myConsole = new CustomConsole();
+    clock = new Clock();
+    transactionRepository = new TransactionRepository(clock);
+    statementPrinter = new StatementPrinter(myConsole);
+    accountService = new AccountService(
       transactionRepository,
       statementPrinter
     );
   });
-  
+
   test('prints bank account statements in order', () => {
     clock.today = jest
       .fn()
